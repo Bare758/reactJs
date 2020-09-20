@@ -1,10 +1,9 @@
 import React, { Component } from "react";
 import Todo from "./Todo";
-import propTypes from "prop-types";
+import PropTypes from "prop-types";
 
 class Todos extends Component {
   render() {
-    console.log(this.props.todos);
     const todos = this.props.todos;
     return (
       <div>
@@ -14,6 +13,7 @@ class Todos extends Component {
               key={todoItem.id}
               todoProp={todoItem}
               markCompleteProp2={this.props.markCompleteProp}
+              deleteTodoProp2={this.props.deleteTodoProp}
             />
           );
         })}
@@ -23,6 +23,7 @@ class Todos extends Component {
 }
 
 Todos.propTypes = {
-  todos: propTypes.array.isRequired,
+  todos: PropTypes.array.isRequired,
 };
+
 export default Todos;

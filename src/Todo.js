@@ -12,23 +12,25 @@ class Todo extends Component {
   }
 
   render() {
+    const { id, title } = this.props.todoProp;
     return (
       <div style={this.getStyle()}>
-        {this.props.todoProp.title}
-        <button style={buttonStyle}>x</button>
-
         <input
           type="checkbox"
-          onChange={this.props.markCompleteProp2.bind(
-            this,
-            this.props.todoProp.id
-          )}
+          onChange={this.props.markCompleteProp2.bind(this, id)}
         ></input>
+
+        {title}
+        <button
+          onClick={this.props.deleteTodoProp2.bind(this, id)}
+          style={buttonStyle}
+        >
+          x
+        </button>
       </div>
     );
   }
 }
-
 const buttonStyle = {
   background: "#ff0000",
   color: "#fff",
